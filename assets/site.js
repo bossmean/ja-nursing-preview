@@ -76,7 +76,7 @@
 
       if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
 
-      var next = form.getAttribute("data-next") || "/thank-you.html";
+      var next = form.getAttribute("data-next") || "thank-you.html";
       var qs = "?magnet=" + encodeURIComponent(form.getAttribute("data-lead") || "guide");
       if (data.first_name) qs += "&name=" + encodeURIComponent(data.first_name);
 
