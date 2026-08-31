@@ -68,7 +68,7 @@ section{position:relative}
 .sec-tight{padding-block:clamp(42px,6vw,72px)}
 .dark{background:var(--oxblood);color:#E9D8CF}
 .dark h1,.dark h2,.dark h3,.dark h4{color:#fff}
-.dark a{color:var(--gold-2)}
+.dark a:not(.btn):not(.amz){color:var(--gold-2)}
 .cream{background:var(--cream)}
 .sand{background:var(--sand-2)}
 
