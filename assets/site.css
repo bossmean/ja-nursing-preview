@@ -504,3 +504,68 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--gold);backg
   .print-foot{display:block;margin-top:8mm;padding-top:4mm;border-top:1px solid #999;font-size:9pt;color:#333}
 }
 .print-foot{display:none}
+
+/* ============================================================
+   Three doors: the homepage routing block
+   ============================================================ */
+.doors{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+@media (max-width:940px){.doors{grid-template-columns:1fr;max-width:620px;margin-inline:auto}}
+.door{display:flex;flex-direction:column;background:#fff;border:1px solid var(--sand);
+  border-radius:var(--r-lg);padding:clamp(26px,3.4vw,34px);position:relative;overflow:hidden;
+  text-decoration:none;color:inherit;transition:.25s var(--ease)}
+.door::before{content:"";position:absolute;inset:0 0 auto;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-3));transform:scaleX(0);transform-origin:left;
+  transition:.3s var(--ease)}
+.door::after{content:"";position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;opacity:.06;
+  background:var(--burgundy);
+  -webkit-mask:var(--shield-mask) center/contain no-repeat;mask:var(--shield-mask) center/contain no-repeat}
+.door:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--gold)}
+.door:hover::before{transform:scaleX(1)}
+.door:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.door-n{font:600 .68rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--wine);
+  margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.door-n i{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-style:normal;
+  background:linear-gradient(150deg,rgba(184,135,60,.22),rgba(101,8,24,.12));color:var(--burgundy);
+  font-size:.74rem;letter-spacing:0}
+.door h3{font-size:clamp(1.28rem,2.6vw,1.62rem);margin-bottom:.4em;position:relative}
+.door>p{font-size:.97rem;color:var(--body);margin:0 0 18px;position:relative}
+.door .checks{font-size:.92rem;margin-bottom:22px;position:relative}
+.door .door-go{margin-top:auto;display:inline-flex;align-items:center;gap:9px;position:relative;
+  font:600 .93rem/1 var(--sans);color:var(--burgundy)}
+.door .door-go svg{width:17px;height:17px;transition:.22s var(--ease)}
+.door:hover .door-go svg{transform:translateX(4px)}
+
+/* the middle door carries the product, so it gets the weight */
+.door.feat{background:linear-gradient(150deg,var(--burgundy),var(--oxblood));border-color:transparent}
+.door.feat::after{background:var(--gold-3);opacity:.12}
+.door.feat h3{color:#fff}
+.door.feat>p{color:#DCC0B7}
+.door.feat .door-n{color:var(--gold-2)}
+.door.feat .door-n i{background:rgba(240,221,180,.18);color:var(--gold-3)}
+.door.feat .checks{color:#E4D0C7}
+.door.feat .checks li::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23F0DDB4' d='M8.2 13.6 5 10.4l1.2-1.2 2 2 5.6-5.6L15 6.8z'/%3E%3C/svg%3E")}
+.door.feat .door-go{color:var(--gold-3)}
+.door.feat:hover{border-color:var(--gold)}
+
+/* ---------- small social impact strip ---------- */
+.impact{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;
+  background:var(--sand-2);border:1px solid var(--sand);border-radius:var(--r-lg);
+  padding:clamp(22px,3vw,30px)}
+.impact .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;flex:none;
+  background:linear-gradient(150deg,rgba(184,135,60,.2),rgba(101,8,24,.12));color:var(--burgundy)}
+.impact .ico svg{width:23px;height:23px}
+.impact h3{font-size:1.15rem;margin-bottom:.3em}
+.impact p{font-size:.95rem;margin:0}
+@media (max-width:760px){.impact{grid-template-columns:1fr;gap:16px}.impact .btn{justify-self:start}}
+/* door-go also works as a real link inside a non-anchor door */
+a.door-go{text-decoration:none}
+a.door-go:hover{color:var(--wine)}
+.door.feat a.door-go:hover{color:#fff}
+
+/* A flex li turns a leading <b> and the text after it into two separate flex
+   items, so "Bold lead in. Then the sentence." renders as two columns.
+   Anchor the marker instead and let the content stay inline. */
+.checks li{display:block;position:relative;padding-left:30px}
+.checks li::before{position:absolute;left:0;top:2px;margin-top:0}
+.boxes li{display:block;position:relative;padding-left:29px}
+.boxes li::before{position:absolute;left:0;top:14px;margin-top:0}
