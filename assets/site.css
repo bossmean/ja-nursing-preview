@@ -569,3 +569,7 @@ a.door-go:hover{color:var(--wine)}
 .checks li::before{position:absolute;left:0;top:2px;margin-top:0}
 .boxes li{display:block;position:relative;padding-left:29px}
 .boxes li::before{position:absolute;left:0;top:14px;margin-top:0}
+
+/* Michelle's logo, used once LOGO is set in build.py */
+.brand-logo{height:46px;width:auto;flex:none;display:block}
+@media (max-width:640px){.brand-logo{height:38px}}
