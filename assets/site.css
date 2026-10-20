@@ -570,6 +570,10 @@ a.door-go:hover{color:var(--wine)}
 .boxes li{display:block;position:relative;padding-left:29px}
 .boxes li::before{position:absolute;left:0;top:14px;margin-top:0}
 
-/* Michelle's logo, used once LOGO is set in build.py */
-.brand-logo{height:46px;width:auto;flex:none;display:block}
-@media (max-width:640px){.brand-logo{height:38px}}
+/* Michelle's heart and book logo, set by LOGO in build.py. The red mark sits on a
+   cream tile because red on the oxblood header would be too low in contrast. */
+.brand-logo{flex:none;display:grid;place-items:center;background:var(--cream);border-radius:10px;
+  padding:7px 9px;box-shadow:0 0 0 1px rgba(184,135,60,.45)}
+.brand-logo img{display:block;height:32px;width:auto}
+.ftr a.brand{display:inline-flex;padding:0}
+@media (max-width:640px){.brand-logo{padding:6px 7px}.brand-logo img{height:26px}}
