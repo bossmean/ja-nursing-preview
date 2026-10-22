@@ -52,6 +52,12 @@
     el.textContent = new Date().getFullYear();
   });
 
+  /* ---------- preselect the enquiry type from ?topic= (Join the waitlist) ---------- */
+  var TOPICS = { waitlist: "Caregiver Advocate book waitlist" };
+  var topicSel = document.getElementById("c-topic");
+  var topicKey = new URLSearchParams(location.search).get("topic");
+  if (topicSel && TOPICS[topicKey]) topicSel.value = TOPICS[topicKey];
+
   /* ---------- lead forms ---------- */
   document.querySelectorAll("form[data-lead]").forEach(function (form) {
     var msg = form.querySelector(".form-msg");

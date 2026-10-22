@@ -570,10 +570,13 @@ a.door-go:hover{color:var(--wine)}
 .boxes li{display:block;position:relative;padding-left:29px}
 .boxes li::before{position:absolute;left:0;top:14px;margin-top:0}
 
-/* Michelle's heart and book logo, set by LOGO in build.py. The red mark sits on a
-   cream tile because red on the oxblood header would be too low in contrast. */
-.brand-logo{flex:none;display:grid;place-items:center;background:var(--cream);border-radius:10px;
-  padding:7px 9px;box-shadow:0 0 0 1px rgba(184,135,60,.45)}
-.brand-logo img{display:block;height:32px;width:auto}
+/* Michelle's heart and book logo, set by LOGO in build.py. The transparent red mark
+   sits straight on the header and footer, no tile, as she asked on 2026-10-22. */
+.brand-logo{flex:none;display:block}
+.brand-logo img{display:block;height:44px;width:auto}
 .ftr a.brand{display:inline-flex;padding:0}
-@media (max-width:640px){.brand-logo{padding:6px 7px}.brand-logo img{height:26px}}
+@media (max-width:640px){.brand-logo img{height:34px}}
+
+/* Organizations positioning line, the counterpart to "Get a nurse in your corner" */
+.org-theme{font:700 clamp(1.05rem,2.2vw,1.35rem)/1.2 var(--serif);letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;margin:-4px 0 16px}
