@@ -4,13 +4,14 @@
 
   /* --------------------------------------------------------------
      FORM ENDPOINT
-     The contact form posts to FormSubmit, which emails every enquiry to
+     The contact form posts to the site's own Cloudflare Worker
+     (cloudflare/worker.js), which emails every enquiry to
      janursingservices@gmail.com with the visitor's address as reply to.
-     The very first submission makes FormSubmit send a one time
-     activation email to that inbox; nothing is delivered until Michelle
-     clicks Activate in it. Blank this to put the forms back in demo mode.
+     It only works where the worker serves the site (the live domain and
+     its workers.dev staging copy). Blank this to put the forms back in
+     demo mode.
      -------------------------------------------------------------- */
-  var FORM_ENDPOINT = "https://formsubmit.co/ajax/janursingservices@gmail.com";
+  var FORM_ENDPOINT = "/api/contact";
 
   /* ---------- mobile drawer ---------- */
   var burger = document.querySelector(".burger");
@@ -85,11 +86,7 @@
       var next = form.getAttribute("data-next") || "thank-you.html";
       var qs = data.first_name ? "?name=" + encodeURIComponent(data.first_name) : "";
 
-      /* FormSubmit settings: subject names the enquiry type, replies go to the visitor */
       delete data.company;
-      data._subject = "Website enquiry: " + (data.topic || "General");
-      if (data.email) data._replyto = data.email;
-      data._template = "table";
 
       function go() { location.href = next + qs; }
 
